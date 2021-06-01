@@ -1,0 +1,112 @@
+/*Make the APp logo spin infinitely linearly*/
+#App-logo {
+  height: 2rem;
+  pointer-events: none;
+  animation: App-logo-spin infinite 20s linear;
+}
+
+.App-logo-container{
+  margin-top: 0.5em;
+}
+
+/*Create the fixed position Flexbox header, the gradient is the same as the main gradient at the very top*/
+.App-header{
+  text-align: center;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  width: 100vw;
+  height: 100px;
+  background: linear-gradient(#00d4ff,#00cdf5);
+}
+
+.App-header h1{
+  color: white;
+  margin-right: 20px;
+}
+
+/*Makes the app body, with just enough padding at the top to escape being covered up by the fixed header*/
+.App-body {
+  padding-top: 100px;
+  background: linear-gradient(#00d4ff, #282c34);
+  min-height: 300vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+/*These are the outer divs of the text elements*/
+.outerDiv{
+  display:flex;
+  background-color: #C0C0C0;
+  padding: 20px;
+  width: 80%;
+  margin: 20px;
+}
+
+/*Keyframes that make the logo spin*/
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/*Key frames that push the shiny sheen through the button*/
+@keyframes sheen {
+  0% {
+    transform: skewY(-45deg) translateX(0);
+  }
+  100% {
+    transform: skewY(-45deg) translateX(12.5em);
+  }
+}
+
+/* Create our actual button with the original blueish border creating it to be inline block aswell*/
+.clockButton {
+  margin-bottom:10px;
+  padding: 0.75em 2em;
+  text-align: center;
+  text-decoration: none;
+  color: #2194E0;
+  border: 2px solid #2194E0;
+  font-size: 24px;
+  display: inline-block;
+  border-radius: 0.3em;
+  transition: all 0.2s ease-in-out;
+  position: relative;
+  overflow: hidden;
+}
+
+/*Create a before element with a colour that resembles what light hitting our button would be, and skew it a bit to give some authenticity :)*/
+.clockButton:before {
+  content: "";
+  background-color: rgba(255, 255, 255, 0.5);
+  height: 100%;
+  width: 3em;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: -4.5em;
+  transform: skewX(-45deg) translateX(0);
+  transition: none;
+}
+
+/*Change the button to the blue that is the hover*/
+.clockButton:hover {
+  background-color: #2194E0;
+  color: #fff;
+  border-bottom: 4px solid #1977b5;
+}
+
+/*Make the sheen go through its animation when the button is hovered*/
+.clockButton:hover:before {
+  transform: skewX(-45deg) translateX(13.5em);
+  transition: all 0.5s ease-in-out;
+}
